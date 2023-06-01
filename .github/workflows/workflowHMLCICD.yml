@@ -34,7 +34,6 @@ jobs:
           -Dsonar.language=java \
           -Dsonar.java.coveragePlugin=jacoco \
           -Dsonar.test.skip=true \
-
   job-CD-HML:
     needs: job-CI-HML
     runs-on: ubuntu-latest
@@ -71,6 +70,6 @@ jobs:
       
       - name: Fazendo Deploy no ambiente de HML
         run: |
-          mvn -B -f pom.xml clean install -Dmaven.test.skip=true
+          ssh azure-cloud 'sudo systemctl stop java'
           scp -r target/java-api.jar azure-cloud:/home/azureuser/projeto/
           ssh azure-cloud 'sudo systemctl start java'
