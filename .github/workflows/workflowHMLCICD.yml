@@ -56,11 +56,9 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
           cache: maven
-          
-          run: |
-            mvn -B -f pom.xml clean install -Dmaven.test.skip=true
       
       - name: Fazendo Deploy no ambiente de HML
         run: |
+          mvn -B -f pom.xml clean install -Dmaven.test.skip=true
           scp -r target/java-api.jar azure-cloud:/home/azureuser/projeto/
           ssh azure-cloud 'sudo systemctl start java'
