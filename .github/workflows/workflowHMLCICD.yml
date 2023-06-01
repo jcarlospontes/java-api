@@ -45,7 +45,7 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/azure-cloud.key
           chmod 600 ~/.ssh/azure-cloud.key
           cat >>~/.ssh/config <<END
-          Host google-cloud
+          Host azure-cloud
             HostName $SSH_HOST
             User $SSH_USER
             IdentityFile ~/.ssh/azure-cloud.key
