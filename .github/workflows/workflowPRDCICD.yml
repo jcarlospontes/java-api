@@ -71,5 +71,6 @@ jobs:
       - name: Fazendo Deploy no ambiente de PRD
         run: |
           ssh azure-cloud 'sudo systemctl stop java'
+          ssh azure-cloud 'sudo rm -rf /home/azureuser1/projeto/*'
           scp -r target/java-api.jar azure-cloud:/home/azureuser1/projeto/
           ssh azure-cloud 'sudo systemctl start java'
