@@ -14,7 +14,7 @@ jobs:
 
       - name: Uso do SonarCloud
         env:
-            GITHUB_TOKEN: ${{ secrets.TOKENGIT }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONARTOKEN }}
         run: |
           mvn -B verify sonar:sonar \
