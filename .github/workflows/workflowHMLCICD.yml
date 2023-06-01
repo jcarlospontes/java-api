@@ -71,5 +71,6 @@ jobs:
       - name: Fazendo Deploy no ambiente de HML
         run: |
           ssh azure-cloud 'sudo systemctl stop java'
+          ssh azure-cloud 'sudo rm -rf /home/azureuser/projeto/*'
           scp -r target/java-api.jar azure-cloud:/home/azureuser/projeto/
           ssh azure-cloud 'sudo systemctl start java'
